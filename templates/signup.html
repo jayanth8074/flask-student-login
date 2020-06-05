@@ -1,0 +1,515 @@
+<html>
+
+<head>
+   <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.css') }}"/>
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+   <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='jquery.formalist.js') }}"></script>
+   <script src="{{ url_for('static', filename='conditional.js') }}"></script>
+   <style>
+      form .hidden {
+         display: none;
+      }
+
+      form .visible {
+         display: block;
+      }
+      form {
+         font-weight: bold;
+      }
+   </style>
+</head>
+
+<body>
+   
+     
+   <div class="jquery-script-clear"></div>
+   <div class="bootstrap-iso">
+      <div class="topnav">
+         <a class="active" href="{{ url_for('home') }}">Dashboard</a>
+         <a href="{{ url_for('index') }}" class="right-float">Sign In</a>
+         <a href="{{ url_for('addstudent') }}" class="right-float">Sign Up</a>
+       </div>
+       <br><br> 
+      <div class="container-fluid mainBox card">
+         <div class="row">
+            <div class="col-sm-12">
+               
+               <form id="formStd" action="http://localhost:5000/signup" method="post" class="card-body">
+                  <h3 class="card-title">Student Registration</h3>
+                  <div class="form-group">
+                     <label>Enter Email:</label>
+                     <p><input type="email" name="email" /></p>
+                     <label>Enter Password:</label>
+                     <p><input type="password" name="password" /></p>
+                     <label>Enter Roll No:</label>
+                     <p><input type="number" name="rollno" /></p>
+                     <label>Enter Name:</label>
+                     <p><input type="text" name="name" /></p>
+                     <label>Enter Standard:</label>
+                     <select name="std">
+                        <!-- <option value="">Select an Option</option> -->
+                        <option value="1" id="1">1</option>
+                        <option value="2" id="2">2</option>
+                        <option value="3" id="3">3</option>
+                        <option value="4" id="4">4</option>
+                        <option value="5" id="5">5</option>
+                        <option value="6" id="6">6</option>
+                        <option value="7" id="7">7</option>
+                        <option value="8" id="8">8</option>
+                        <option value="9" id="9">9</option>
+                        <option value="10" id="10">10</option>
+                     </select>
+                     <!-- <p><input type="number" min="1" max="10" name="standard" /></p> -->
+                  </div>
+                  <div class="box" data-show="1" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="1percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="1remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="1grade1" /></p>
+                  </div>
+
+                  <div class="box" data-show="2" data-hide="std">
+                     <label>Enter Standard 1 Details:</label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="2percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="2remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="2grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="2percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="2remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="2grade2" /></p>
+                  </div>
+                  <div class="box" data-show="3" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="3percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="3remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="3grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="3percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="3remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="3grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="3percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="3remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="3grade3" /></p>
+                  </div>
+                  <div class="box" data-show="4" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="4percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="4remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="4grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="4percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="4remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="4grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="4percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="4remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="4grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="4percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="4remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="4grade4" /></p>
+                  </div>
+                  <div class="box" data-show="5" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="5percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="5remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="5grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="5percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="5remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="5grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="5percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="5remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="5grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="5percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="5remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="5grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="5percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="5remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="5grade5" /></p>
+                  </div>
+                  <div class="box" data-show="6" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade5" /></p>
+                     <label>Enter Standard 6 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="6percentage6" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="6remark6" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="6grade6" /></p>
+                  </div>
+                  <div class="box" data-show="7" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade5" /></p>
+                     <label>Enter Standard 6 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage6" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark6" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade6" /></p>
+                     <label>Enter Standard 7 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="7percentage7" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="7remark7" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="7grade7" /></p>
+                  </div>
+                  <div class="box" data-show="8" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade5" /></p>
+                     <label>Enter Standard 6 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage6" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark6" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade6" /></p>
+                     <label>Enter Standard 7 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage7" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark7" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade7" /></p>
+                     <label>Enter Standard 8 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="8percentage8" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="8remark8" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="8grade8" /></p>
+                  </div>
+                  <div class="box" data-show="9" data-hide="std">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade5" /></p>
+                     <label>Enter Standard 6 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage6" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark6" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade6" /></p>
+                     <label>Enter Standard 7 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage7" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark7" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade7" /></p>
+                     <label>Enter Standard 8 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage8" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark8" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade8" /></p>
+                     <label>Enter Standard 9 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="9percentage9" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="9remark9" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="9grade9" /></p>
+                  </div>
+                  <div class="box" data-show="10">
+                     <label>Enter Standard 1 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage1" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark1" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade1" /></p>
+                     <label>Enter Standard 2 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage2" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark2" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade2" /></p>
+                     <label>Enter Standard 3 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage3" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark3" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade3" /></p>
+                     <label>Enter Standard 4 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage4" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark4" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade4" /></p>
+                     <label>Enter Standard 5 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage5" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark5" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade5" /></p>
+                     <label>Enter Standard 6 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage6" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark6" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade6" /></p>
+                     <label>Enter Standard 7 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage7" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark7" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade7" /></p>
+                     <label>Enter Standard 8 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage8" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark8" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade8" /></p>
+                     <label>Enter Standard 9 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage9" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark9" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade9" /></p>
+                     <label>Enter Standard 10 Details: </label><br>
+                     <label>Enter Percentage:</label>
+                     <p><input type="number" name="10percentage10" min="1" max="100" /></p>
+                     <label>Enter Remark:</label>
+                     <p><input type="text" name="10remark10" /></p>
+                     <label>Enter Grade:</label>
+                     <p><input type="text" name="10grade10" /></p>
+                  </div>
+                  <div class="form-group">
+                     <button class="btn btn-primary " name="submit" type="submit">
+                        Submit
+                     </button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+  
+   <script>
+      $(function () {
+         $('#formStd').formalist();
+      });
+      $('#formStd').formalist({
+
+         // default selector
+         selector: ':radio,:checkbox,select',
+
+         // trigger event
+         event: 'change',
+
+         // default box
+         box: 'div.box',
+
+         // cascading elements
+         cascade: ':radio:checked:visible,:checkbox:checked:visible,select:visible option:selected',
+
+         // default CSS classes
+         classwhenhidden: 'hidden',
+         classwhenvisible: 'visible',
+
+         // callback functions
+         hide: function (box) { hide(box); },
+         show: function (box) { show(box); },
+         correlate: function (box, field, type, value, name, id) { return correlate(box, field, type, value, name, id); }
+
+      });
+   </script>
+
+</body>
+
+</html>
