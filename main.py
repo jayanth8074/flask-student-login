@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request, redirect,url_for,jsonify
 app = Flask(__name__)
-from flaskext.mysql import MySQL
+from flask.ext.mysql import MySQL
  
 mysql = MySQL()
 app = Flask(__name__)
